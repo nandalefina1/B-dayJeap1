@@ -1,0 +1,126 @@
+/* ==================== A. STYLE DASAR & BODY ==================== */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Font Lucu */
+    background-color: #f7f7f7;
+    overflow: hidden; /* Penting untuk Confetti */
+}
+
+/* ==================== B. EFEK CONFETTI (Taburan Pesta) ==================== */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+    animation: fall 10s infinite linear;
+}
+
+/* Set warna Confetti berbeda */
+.confetti:nth-child(1) { background-color: #ff69b4; left: 10%; animation-delay: 0s; }
+.confetti:nth-child(2) { background-color: #ffd700; left: 20%; animation-delay: 1s; }
+.confetti:nth-child(3) { background-color: #87ceeb; left: 30%; animation-delay: 2s; }
+.confetti:nth-child(4) { background-color: #ff4500; left: 40%; animation-delay: 3s; }
+.confetti:nth-child(5) { background-color: #90ee90; left: 50%; animation-delay: 4s; }
+.confetti:nth-child(6) { background-color: #ff69b4; left: 60%; animation-delay: 5s; }
+.confetti:nth-child(7) { background-color: #ffd700; left: 70%; animation-delay: 6s; }
+.confetti:nth-child(8) { background-color: #87ceeb; left: 80%; animation-delay: 7s; }
+.confetti:nth-child(9) { background-color: #ff4500; left: 90%; animation-delay: 8s; }
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0.5; }
+}
+
+/* ==================== C. CARD 3D FLIP ==================== */
+
+#birthday-card-wrapper {
+    perspective: 1000px; /* Jarak pandang untuk 3D */
+}
+
+#birthday-card {
+    background: linear-gradient(135deg, #fff 0%, #ffebee 100%);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 700px;
+    width: 90%;
+    /* Properti 3D */
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg); 
+    cursor: pointer; 
+    
+    /* Animasi Card Masuk */
+    animation: pop-in 1.5s ease-out;
+}
+
+@keyframes pop-in {
+    0% { transform: scale(0) rotateY(0deg); opacity: 0; }
+    80% { transform: scale(1.05) rotateY(0deg); opacity: 1; }
+    100% { transform: scale(1) rotateY(0deg); }
+}
+
+/* State Card Terbalik */
+#birthday-card.flipped {
+    transform: rotateY(180deg);
+}
+
+h1 {
+    font-size: 3.5em;
+    color: #ff007f; 
+    margin-bottom: 20px;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+#message {
+    font-size: 1.2em;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: delayed-fade-in 1s 2s forwards;
+}
+
+@keyframes delayed-fade-in {
+    to { opacity: 1; }
+}
+
+/* ==================== D. GALERI IDOLA & EFEK LUCU ==================== */
+.idol-gallery {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.idol-pic {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 5px solid #ff007f;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+    transition: transform 0.3s ease-out;
+    /* Animasi Foto Menggoyangkan Kepala */
+    animation
