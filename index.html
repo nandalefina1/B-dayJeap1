@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Ulang Tahun Terbaik!</title>
+    <style>
+        /* ==================== A. STYLE DASAR & BODY ==================== */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Font Lucu */
+            background-color: #f7f7f7;
+            overflow: hidden; /* Penting untuk Confetti */
+        }
+        
+        /* ==================== B. EFEK CONFETTI (Taburan Pesta) ==================== */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: transparent;
+            border-radius: 50%;
+            opacity: 0;
+            animation: fall 10s infinite linear;
+        }
+
+        /* Set warna Confetti berbeda */
+        .confetti:nth-child(1) { background-color: #ff69b4; left: 10%; animation-delay: 0s; }
+        .confetti:nth-child(2) { background-color: #ffd700; left: 20%; animation-delay: 1s; }
+        .confetti:nth-child(3) { background-color: #87ceeb; left: 30%; animation-delay: 2s; }
+        .confetti:nth-child(4) { background-color: #ff4500; left: 40%; animation-delay: 3s; }
+        .confetti:nth-child(5) { background-color: #90ee90; left: 50%; animation-delay: 4s; }
+        .confetti:nth-child(6) { background-color: #ff69b4; left: 60%; animation-delay: 5s; }
+        .confetti:nth-child(7) { background-color: #ffd700; left: 70%; animation-delay: 6s; }
+        .confetti:nth-child(8) { background-color: #87ceeb; left: 80%; animation-delay: 7s; }
+        .confetti:nth-child(9) { background-color: #ff4500; left: 90%; animation-delay: 8s; }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate
